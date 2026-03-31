@@ -1,0 +1,58 @@
+<style>
+    .custom-img {
+        width: 100%; /* Responsive width */
+        height: 250px; /* Adjusted for mobile */
+        object-fit: contain; /* Ensures full image is displayed without cropping */
+        background-color: white;
+        border-radius: 5px; /* Slight rounding for a polished look */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .custom-img:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+
+    .img-container {
+        padding: 5px; /* More padding for better spacing */
+        text-align: center; /* Ensures images are centered */
+    }
+
+    @media (max-width: 576px) {
+        .custom-img {
+            height: 200px; /* Smaller height for mobile */
+        }
+    }
+
+    .page-title {
+        font-size: 36px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div>
+    <div class="text-center mt-5">
+        <h3 class="andrea-text" style="font-size: 44px;">Seniors</h3>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <!-- Image Grid -->
+            <div class="col-6 col-md-4 img-container" ng-repeat="image in seniorimages">
+                <img ng-src="{{image}}" loading="lazy" alt="Senior Image" class="custom-img" ng-click="showImage(image)">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Image Preview -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img id="modalImage" src="" alt="Full Image" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
